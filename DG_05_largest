@@ -1,0 +1,30 @@
+/* Find the largest string (lexicographically) from a given array of strings. */
+
+package com.practice.strings;
+
+import java.util.Scanner;
+
+public class DG_05_largest {
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the total number of strings: ");
+        int n = sc.nextInt();
+        String[] arr = new String[n];
+        System.out.println("Enter strings: ");
+        for(int i=0; i<n; i++){
+            arr[i] = sc.next();
+        }
+
+        System.out.println("Lexicographically largest string: " + largest(arr));
+    }
+
+    private static String largest(String[] arr){
+        String large = arr[0];
+        for(int i=1; i<arr.length; i++){
+            if(large.compareToIgnoreCase(arr[i]) < 0){
+                large = arr[i];
+            }
+        }
+        return large;
+    }
+}
